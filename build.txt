@@ -1,0 +1,17 @@
+Software/Library versions:
+
+1.	OS: Ubuntu 14.04.3
+	
+2.	Python version 3.4.3
+	
+3.	MySQL version 5.5.46
+	
+4.	Django version 1.8.7
+	
+
+Python packages:
+
+a. "requirements.txt" contains the required python packages
+	To install the requirements with the 'pip' tool:
+	$ pip install -r requirements.txt
+
