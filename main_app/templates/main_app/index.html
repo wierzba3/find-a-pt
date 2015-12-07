@@ -1,0 +1,13 @@
+{% if trainer_list %}
+	<ul>
+		{% for trainer in trainer_list %}
+			<h3>{{ trainer.user }}</h3>
+			<br />
+			{{ trainer.bio }}
+			<br />
+			<br />
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No polls are available.</p>
+{% endif %}
