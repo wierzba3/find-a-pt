@@ -1,13 +1,9 @@
-{% if trainer_list %}
-	<ul>
-		{% for trainer in trainer_list %}
-			<h3>{{ trainer.user }}</h3>
-			<br />
-			{{ trainer.bio }}
-			<br />
-			<br />
-		{% endfor %}
-	</ul>
-{% else %}
-	<p>No polls are available.</p>
-{% endif %}
+<h1>main_app index</h1>
+
+<form action="{% url 'main:trainer_profiles' zipcode %}" method="GET" >
+	
+	<input id="txt_zipcode" type="text" name="zipcode" />
+	
+	<input type="submit" value="Search" />
+	
+</form>

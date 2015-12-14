@@ -1,0 +1,19 @@
+{% if zipcode %}
+	<h2>Search results for zipcode {{ zipcode }} </h2>
+{% else %}
+	<p>no zipcode</p>
+{% endif %}
+{% if trainer_list %}
+	<ul>
+		{% for trainer in trainer_list %}
+			<h3>{{ trainer.user }}</h3>
+			<br />
+			{{ trainer.bio }}
+			<a href="{% url 'main:view_trainer' trainer.user.pk %}">{{ trainer.user }} profile link</a>
+			<br />
+			<br />
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No polls are available.</p>
+{% endif %}
