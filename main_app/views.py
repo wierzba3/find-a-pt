@@ -10,12 +10,12 @@ def index(request):
 	
 def trainer_profiles(request):
 	trainer_list = TrainerProfile.objects.all()
-	context = { 'trainer_list': trainer_list }
+	context = { 'trainer_list': trainer_list, 'x':'1' }
 	return render(request, "main_app/trainer_profiles.html", context)
 	
 def trainer_profiles_search(request, zipcode):
 	trainer_list = TrainerProfile.objects.all()
-	context = { 'trainer_list': trainer_list, 'zipcode': zipcode }
+	context = { 'trainer_list': trainer_list, 'zipcode': zipcode, 'x':'2' }
 	return render(request, "main_app/trainer_profiles.html", context)
 	
 def view_trainer(request, user_id):

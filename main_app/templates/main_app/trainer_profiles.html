@@ -1,8 +1,14 @@
 {% if zipcode %}
 	<h2>Search results for zipcode {{ zipcode }} </h2>
+	<br />
 {% else %}
 	<p>no zipcode</p>
 {% endif %}
+
+{% if x %}
+	<h2>{{ x }}</h2>
+{% endif %}
+
 {% if trainer_list %}
 	<ul>
 		{% for trainer in trainer_list %}
