@@ -1,12 +1,8 @@
-{% if zipcode %}
-	<h2>Search results for zipcode {{ zipcode }} </h2>
+{% if name_search %}
+	Search results for names containing <b>{{ name_search }}</b>
 	<br />
 {% else %}
-	<p>no zipcode</p>
-{% endif %}
-
-{% if x %}
-	<h2>{{ x }}</h2>
+	<p>no search name</p>
 {% endif %}
 
 {% if trainer_list %}
@@ -21,5 +17,5 @@
 		{% endfor %}
 	</ul>
 {% else %}
-	<p>No polls are available.</p>
+	<p>No trainers found.</p>
 {% endif %}

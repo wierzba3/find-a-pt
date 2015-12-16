@@ -3,20 +3,35 @@ from django.http import Http404
 
 # Create your views here.
 from trainer_app.models import TrainerProfile
+from main_app.forms import SearchForm
 
 def index(request):
+	form = SearchForm()
+	context = { 'form': form }
+	return render(request, "main_app/index.html", context)
+	
 
-	return render(request, "main_app/index.html")
-	
 def trainer_profiles(request):
-	trainer_list = TrainerProfile.objects.all()
-	context = { 'trainer_list': trainer_list, 'x':'1' }
+	"""
+	A view that displays a set of TrainerProfile objects
+	The result set is may be filtered by a SearchForm GET request
+	"""
+	context = {}
+	trainer_list = None
+	if (request.method == 'GET'):
+		name_search = request.GET.get('name_search', None)
+		if(name_search):
+			context['name_search'] = name_search
+			trainer_list = TrainerProfile.objects.filter(user__username__icontains=name_search)
+		else:
+			trainer_list = TrainerProfile.objects.all()
+	context['trainer_list'] = trainer_list
 	return render(request, "main_app/trainer_profiles.html", context)
 	
-def trainer_profiles_search(request, zipcode):
-	trainer_list = TrainerProfile.objects.all()
-	context = { 'trainer_list': trainer_list, 'zipcode': zipcode, 'x':'2' }
-	return render(request, "main_app/trainer_profiles.html", context)
+#def trainer_profiles_search(request, zipcode):
+	#trainer_list = TrainerProfile.objects.all()
+	#context = { 'trainer_list': trainer_list, 'zipcode': zipcode, 'x':'2' }
+	#return render(request, "main_app/trainer_profiles.html", context)
 	
 def view_trainer(request, user_id):
 	try:

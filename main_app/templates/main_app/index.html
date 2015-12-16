@@ -1,9 +1,11 @@
 <h1>main_app index</h1>
 
-<form action="{% url 'main:trainer_profiles' zipcode %}" method="GET" >
-	
-	<input id="txt_zipcode" type="text" name="zipcode" />
-	
+{% if form %}
+<form action="{% url 'main:trainer_profiles' %}" method="GET" >
+	{% csrf_token %}
+	{{ form.as_p }}
 	<input type="submit" value="Search" />
-	
 </form>
+{% else %}
+	<p>Error loading search form.</p>
+{% endif %}
