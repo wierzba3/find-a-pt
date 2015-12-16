@@ -1,11 +1,17 @@
-<h1>main_app index</h1>
+{% extends "base.html" %}
 
-{% if form %}
-<form action="{% url 'main:trainer_profiles' %}" method="GET" >
-	{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="Search" />
-</form>
-{% else %}
-	<p>Error loading search form.</p>
-{% endif %}
+{% block content %}
+
+	<h1>Index</h1>
+
+	{% if form %}
+		<form action="{% url 'main:trainer_profiles' %}" method="GET" >
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Search" />
+		</form>
+	{% else %}
+		<p>Error loading search form.</p>
+	{% endif %}
+
+{% endblock %}
