@@ -6,6 +6,32 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/main">
+			  <u><b>Find A</b></u> <u><b>P</b></u>ersonal <u><b>T</b></u>rainer
+		  </a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/main">Home</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+		    {% if user.is_authenticated %}
+			  <li><a href="#"><span class="glyphicon glyphicon-cog"></span>Account Settings</a></li>
+			  <li><a href="{% url 'django.contrib.auth.views.logout' %}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+		    {% else %}
+		      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+		      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		    {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
     {% block content %}
     {% endblock %}
 

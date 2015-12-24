@@ -1,9 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 class ClientProfile(models.Model):
-	user = models.OneToOneField(User, primary_key=True)
+	#user = models.OneToOneField(UserProfile, primary_key=True)
 	gender = models.CharField(max_length=64, default="Male")
 	age = models.IntegerField(default=0)
 

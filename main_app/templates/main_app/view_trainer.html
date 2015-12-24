@@ -1,8 +1,14 @@
-{% if trainer %}
+{% extends "base.html" %}
 
-	{{ trainer.user }}
-	<br />
-	{{ trainer.bio }}
-	<br />
+{% block content %}
 
-{% endif %}
+	{% if trainer %}
+
+		{{ trainer.user }}
+		<br />
+		{{ trainer.bio }}
+		<br />
+
+	{% endif %}
+	
+{% endblock %}

@@ -1,9 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 class TrainerProfile(models.Model):
-	user = models.OneToOneField(User, primary_key=True)
+	#user = models.OneToOneField(UserProfile, primary_key=True)
 	bio = models.CharField(max_length=1024, default="No bio")
 	education = models.CharField(max_length=256, default="Not specified")
 	gender = models.CharField(max_length=64, default="Male")
